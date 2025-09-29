@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { HiMiniBars3 } from "react-icons/hi2";
 import { Link,NavLink, useLocation } from 'react-router-dom'
 
 function Header() {
@@ -17,8 +18,8 @@ function Header() {
             </div>
 
             <div className='h-full items-center flex justify-end w-full xl:justify-between'>
-                <div className=' hidden xl:block '>
-                    <ul className='list-none flex mt-[1.111vw]'>
+                <div className='h-full items-center hidden xl:flex flex-1'>
+                    <ul className='list-none flex'>
                         <li className='list-item '>
                             <div className=''>
                                 <NavLink className='p-[.83333vw_.83333vw_1.1111vw_.83333vw] ' to='/shop'>Shop</NavLink>
@@ -50,6 +51,9 @@ function Header() {
                             </div>
                         </li>
                     </ul>
+                </div>
+                <div className=' xl:hidden'>
+                    <HiMiniBars3 />
                 </div>
 
                 <div className='flex '>
