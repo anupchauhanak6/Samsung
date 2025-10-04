@@ -1,12 +1,12 @@
 import React from 'react';
-import { HiMiniBars3 } from "react-icons/hi2";
 import { Link,NavLink, useLocation } from 'react-router-dom'
+import MobileBar from './MobileBar';
 
 function Header() {
     const location = useLocation();
     const isNavPage = location.pathname === '/';
     return (
-        <nav className={`mx-1 z-10 h-[7.3655vw] flex gap-[2.22222222vw] items-center w-full absolute top-0 p-[2.2222vw_1.1111vw_0vw_1.1111vw] ${isNavPage ? "bg-transparent text-white" : "bg-white text-black"}`}>
+        <nav className={`mx-1 z-10 h-[64px] xl:h-[7.3655vw] flex gap-[2.22222222vw] items-center w-full absolute top-0 p-[0_8px_0_8px] xl:p-[2.2222vw_1.1111vw_0vw_1.1111vw] ${isNavPage ? "bg-transparent text-white" : "bg-white text-black"}`}>
             <div className='cursor-pointer'>
                 <Link to={'/'}>
                 <svg className='' class="icon" focusable="false" aria-hidden="true" width="130" fill='currentColor' height="29" viewBox="0 0 130 29" data-di-res-id="7242691b-1854f892" data-di-rand="1758191581070">
@@ -52,10 +52,11 @@ function Header() {
                         </li>
                     </ul>
                 </div>
-                <div className=' xl:hidden'>
-                    <HiMiniBars3 />
-                </div>
 
+                {/* Mobile Bar */}
+                <MobileBar />
+                
+                {/* Search Bar */}
                 <div className='flex '>
                     <input type='search' placeholder='Search' className='w-[12.22222222vw] p-[0.69444444vw_0.83333333vw] border hidden rounded-4xl mr-[1.1111vw] xl:block'></input>
                 </div>
