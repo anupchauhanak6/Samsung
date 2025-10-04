@@ -38,6 +38,13 @@ function MobileBar() {
                     <li><NavLink to='/accessories' onClick={() => setMenuOpen(false)}>Accessories</NavLink></li>
                 </ul>
             </div>
+             {/* Background Overlay */}
+            {menuOpen && (
+                <div
+                    onClick={() => setMenuOpen(false)}
+                    className="fixed inset-0 bg-opacity-50 z-0"
+                />
+            )}
         </>
     )
 }
