@@ -3,6 +3,8 @@ import Header from '../Components/Header'
 import HeroSection from '../Components/HeroSection'
 import ImgGalaxy from '../assets/Galaxy-S25-home.webp'
 import CardSection from '../Components/CardSection'
+import BuyButton from '../Components/BuyButton'
+import LernMoreButton from '../Components/LernMoreButton'
 
 function Home() {
   return (
@@ -10,8 +12,17 @@ function Home() {
 
       <HeroSection />
 
-      <img className='hidden sm:block w-full mt-[3vh]' src={ImgGalaxy}></img>
-      <img className='bolck sm:hidden mt-[3vh]' src='https://images.samsung.com/is/image/samsung/assets/in/home/09-2025/Galaxy-S25-FE-Ecosystem_Home_Feature_KV_mo_720x1120.jpg?$720_N_JPG$'></img>
+      <div className='h-full w-full relative'>
+        <img className='hidden sm:block w-full mt-[3vh]' src={ImgGalaxy}></img>
+        <img className='bolck sm:hidden mt-[3vh]' src='https://images.samsung.com/is/image/samsung/assets/in/home/09-2025/Galaxy-S25-FE-Ecosystem_Home_Feature_KV_mo_720x1120.jpg?$720_N_JPG$'></img>
+
+        <div className="flex justify-center items-center z-10 absolute top-[25%] left-[30%] sm:top-[60%] sm:left-[5%] gap-[2vh]">
+
+          <LernMoreButton Name='Lern more'/>
+          <BuyButton Name='Buy'/>
+        </div>
+
+      </div>
 
       <div className='flex p-[1.66666667vw_0vw_1.66666667vw_0vw] gap-[1.6666666vw]'>
       <CardSection img='https://images.samsung.com/is/image/samsung/assets/in/mx_2507/Galaxy-Z-Flip7_Home_Feature_Card_560x560.jpg?$560_560_JPG$'/>
