@@ -105,7 +105,7 @@ function Footer() {
             </div>
             <div className='sm:mt-[1.11111111vw] relative'>
               <p className='font-[700] block text-[4.44444444vw] sm:text-[1.25vw] p-[4.72222222vw_6.66666667vw] sm:p-[1.11111111vw_1.66666667vw]'>About Us</p>
-              <NavLink onClick={()=> setOpen(open===5)} className='sm:hidden absolute h-[15.55555556vw] w-full top-0 left-0'>{open===5 ? (<SlArrowDown className='absolute w-[6.66666667vw] h-[6.66666667vw] right-[6.38888889vw] top-[50%] -translate-y-[50%]'/>) : (<SlArrowUp className='absolute w-[6.66666667vw] h-[6.66666667vw] right-[6.38888889vw] top-[50%] -translate-y-[50%]'/>)}</NavLink>
+              <NavLink onClick={()=> setOpen(open===5 ?null:5)} className='sm:hidden absolute h-[15.55555556vw] w-full top-0 left-0'>{open===5 ? (<SlArrowDown className='absolute w-[6.66666667vw] h-[6.66666667vw] right-[6.38888889vw] top-[50%] -translate-y-[50%]'/>) : (<SlArrowUp className='absolute w-[6.66666667vw] h-[6.66666667vw] right-[6.38888889vw] top-[50%] -translate-y-[50%]'/>)}</NavLink>
               <ul className={`sm:block transform ${open===5 ? 'block' : 'hidden'} transition-transform duration-700 ease-in-out`}>
                 <li><NavLink className='block cursor-pointer p-[2.77777778vw_7.77777778vw_3.05555556vw_8.88888889vw] sm:p-[.48611111vw_1.66666667vw] w-full sm:text-[.97222222vw] hover:underline' to={''}>Company Info</NavLink></li>
                 <li><NavLink className='block cursor-pointer p-[2.77777778vw_7.77777778vw_3.05555556vw_8.88888889vw] sm:p-[.48611111vw_1.66666667vw] w-full sm:text-[.97222222vw] hover:underline' to={''}>Business Area</NavLink></li>
@@ -125,7 +125,7 @@ function Footer() {
 
       <div className='p-[8.88888889vw_0vw_6.11111111vw_0vw] sm:p-0'>
         <div className='sm:text-[.83333333vw] text-[3.33333333vw] p-[0vw_6.66666667vw] sm:p-[1.18055556vw_0.83333333vw_1.04166667vw_1.66666667vw] sm:border-b border-[#d9d9d9] wrap-anywhere'>
-          <div className='p-[0vw_0vw_7.5vw_0vw]'>
+          <div className='p-[0vw_0vw_7.5vw_0vw] sm:p-0'>
             <p className=''>Copyright ⓒ 1995-2025 SAMSUNG All Rights reserved.</p>
 
             <div>
