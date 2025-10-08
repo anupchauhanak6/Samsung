@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { Link,NavLink} from 'react-router-dom'
 import { HiMiniBars3 } from "react-icons/hi2";
 import { RxCross2 } from "react-icons/rx";
+import { GoSearch } from "react-icons/go";
 
 function MobileBar() {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -9,23 +10,22 @@ function MobileBar() {
         <>
             <div className='xl:hidden text-2xl items-center flex'>
                 <button onClick={()=>setMenuOpen(true)}>
-                    <HiMiniBars3 />
+                    <HiMiniBars3 className='h-[24px] w-[24px]'/>
                 </button>
             </div>
-            <div className={`fixed top-0 right-0 h-full w-full sm:w-[40%] bg-white z-10 transform ${menuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out`}>
+            <div className={`fixed top-0 right-0 h-full w-full sm:max-w-[360px] bg-white z-10 transform ${menuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out`}>
                  {/* Close Button */}
                 <div className="p-4">
                     <div className="flex items-center gap-2">
-                        <input
-                            type="text"
-                            placeholder="Search..."
-                            className="flex-1 px-4 py-2 border rounded-full shadow-md"
-                        />
+                        <button type='button' className={`flex items-center border border-[rgba(255,255,255,0.2)] p-[9px_12px_10px] gap-[8px] w-[87.804878%] rounded-[100px] bg-[#f7f7f7] text-black cursor-pointer relative justify-start`}>
+                            <span className='order-2 absolute!important '>Search</span>
+                            <GoSearch className='w-[16px] h-[16px] '/>
+                        </button>
                         <button
                             onClick={() => setMenuOpen(false)}
                             className="text-2xl text-black"
                         >
-                            <RxCross2 />
+                            <RxCross2 className='h-[24px] w-[24px]'/>
                         </button>
                     </div>
                 </div>        
