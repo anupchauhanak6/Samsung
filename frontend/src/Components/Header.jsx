@@ -1,15 +1,17 @@
 import React from 'react';
-import { Link,NavLink, useLocation } from 'react-router-dom'
+import { Link,Navigate,NavLink, useLocation, useNavigate } from 'react-router-dom'
 import MobileBar from './MobileBar';
 import { FaRegUser } from "react-icons/fa6";
 import { GoSearch } from "react-icons/go";
 import { BsCart2 } from "react-icons/bs";
+import Login from './Login';
 
 function Header() {
+    const navigate = useNavigate()
     const location = useLocation();
     const isNavPage = location.pathname === '/';
     return (
-        <nav className={`mx-1 z-10 h-[64px] xl:h-[7.3655vw] flex gap-[2.22222222vw] items-center w-full absolute top-0 p-[0_8px_0_8px] xl:p-[2.2222vw_1.1111vw_0vw_1.1111vw] ${isNavPage ? "bg-transparent text-white" : "bg-white text-black"}`}>
+        <nav className={`mx-1 h-[64px] xl:h-[7.3655vw] flex gap-[2.22222222vw] items-center w-full top-0 p-[0_8px_0_8px] xl:p-[2.2222vw_1.1111vw_0vw_1.1111vw] ${isNavPage ? "bg-transparent text-white z-10 absolute" : "bg-white text-black"}`}>
             <div className='cursor-pointer'>
                 <Link to={'/'}>
                 <svg className='' class="icon" focusable="false" aria-hidden="true" width="130" fill='currentColor' height="29" viewBox="0 0 130 29" data-di-res-id="7242691b-1854f892" data-di-rand="1758191581070">
@@ -68,7 +70,7 @@ function Header() {
                 </Link>
 
                 {/* User */}
-                <button className='p-[8px] xl:p-[.625vw] text-0 items-center'>
+                <button onClick={()=> navigate('./login')} className='p-[8px] xl:p-[.625vw] text-0 items-center cursor-pointer'>
                     <FaRegUser className='h-[24px] xl:h-[1.66666667vw] w-[24px] xl:w-[1.66666667vw]'/>
                 </button>
 
