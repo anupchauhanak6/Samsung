@@ -3,8 +3,6 @@ import Header from '../Components/Header'
 import HeroSection from '../Components/HeroSection'
 import ImgGalaxy from '../assets/Galaxy-S25-home.webp'
 import CardSection from '../Components/CardSection'
-import BuyButton from '../Components/BuyButton'
-import LernMoreButton from '../Components/LernMoreButton'
 
 function Home() {
   return (
@@ -16,10 +14,14 @@ function Home() {
         <img className='hidden sm:block w-full mt-[3vh]' src={ImgGalaxy}></img>
         <img className='bolck sm:hidden mt-[3vh]' src='https://images.samsung.com/is/image/samsung/assets/in/home/09-2025/Galaxy-S25-FE-Ecosystem_Home_Feature_KV_mo_720x1120.jpg?$720_N_JPG$'></img>
 
-        <div className="flex justify-center items-center z-10 absolute top-[25%] left-[30%] sm:top-[60%] sm:left-[5%] gap-[2vh]">
+        <div className="flex sm:flex-row items-center absolute translate-x-[35vw] -translate-y-[120vw] sm:-translate-y-[28vw] sm:translate-x-[53vw] mt-[2.5vw] sm:mt-[1.59722222vw] flex-col justify-start">
 
-          <LernMoreButton Name='Lern more'/>
-          <BuyButton Name='Buy'/>
+          <button className="order-2 sm:order-1 cursor-pointer relative text-black font-semibold after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:left-0 sm:after:bottom-[8.5px] after:bottom-[9.9px] after:transition-all after:duration-300 hover:after:w-full underline decoration-1 underline-offset-8 hover:no-underline mt-[1.94444444vw] sm:mt-0 p-[2.77777778vw_0vw_3.05555556vw_0vw] sm:p-[.69444444vw_0vw_.76388889vw_0vw]">
+            BuyBuds3FE
+          </button>
+          <button className="order-1 sm:order-2 cursor-pointer sm:p-[1.1022167487684729vh_2.8167487684729062vh_1.2246305418719212vh_2.8167487684729062vh] rounded-full font-bold bg-transparent text-black hover:bg-black hover:text-white transition border-[0.5px] sm:ml-[1.73611111vw] p-[2.5vw_6.38888889vw_2.77777778vw_6.38888889vw] text-[3.88888889vw] sm:text-[.97222222vw] mt-[1.94444444vw] sm:mt-0">
+            BuyS25FE
+          </button>
         </div>
 
       </div>
