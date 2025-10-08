@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link,NavLink, useLocation } from 'react-router-dom'
 import MobileBar from './MobileBar';
+import { FaRegUser } from "react-icons/fa6";
+import { GoSearch } from "react-icons/go";
+import { BsCart2 } from "react-icons/bs";
 
 function Header() {
     const location = useLocation();
@@ -19,7 +22,7 @@ function Header() {
 
             <div className='h-full items-center flex justify-end w-full xl:justify-between'>
                 <div className='h-full items-center hidden xl:flex flex-1'>
-                    <ul className='list-none flex'>
+                    <ul className='list-none flex text-[1.11111111vw] font-bold'>
                         <li className='list-item '>
                             <div className=''>
                                 <NavLink className='p-[.83333vw_.83333vw_1.1111vw_.83333vw] ' to='/shop'>Shop</NavLink>
@@ -52,14 +55,26 @@ function Header() {
                         </li>
                     </ul>
                 </div>
+                
+                {/* Search Bar */}
+                <button type='button' className={`flex items-center xl:border xl:border-[rgba(255,255,255,0.2)] p-[.625vw] xl:p-[.69444444vw_.83333333vw] xl:mr-[.69444444vw] gap-[.55555556vw] xl:w-[12.22222222vw] xl:rounded-[6.94444444vw] ${isNavPage ? "xl:bg-[rgba(255,255,255,0.1)] text-white" : "bg-[#f7f7f7] text-black"} cursor-pointer relative justify-start`}>
+                    <span className='hidden xl:block order-2 absolute!important '>Search</span>
+                    <GoSearch className='w-[24px] xl:w-[1.1111111vw] h-[24px] xl:h-[1.1111111vw]'/>
+                </button>
+                
+                {/* Cart */}
+                <Link className='p-[8px] xl:p-[.625vw]'>
+                    <BsCart2 className='h-[24px] xl:h-[1.66666667vw] w-[24px] xl:w-[1.66666667vw]'/>
+                </Link>
+
+                {/* User */}
+                <button className='p-[8px] xl:p-[.625vw] text-0 items-center'>
+                    <FaRegUser className='h-[24px] xl:h-[1.66666667vw] w-[24px] xl:w-[1.66666667vw]'/>
+                </button>
 
                 {/* Mobile Bar */}
                 <MobileBar />
                 
-                {/* Search Bar */}
-                <div className='flex '>
-                    <input type='search' placeholder='Search' className='w-[12.22222222vw] p-[0.69444444vw_0.83333333vw] border hidden rounded-4xl mr-[1.1111vw] xl:block'></input>
-                </div>
             </div>
         </nav>
     )
