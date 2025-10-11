@@ -1,17 +1,25 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Link,Navigate,NavLink, useLocation, useNavigate } from 'react-router-dom'
 import MobileBar from './MobileBar';
 import { FaRegUser } from "react-icons/fa6";
 import { GoSearch } from "react-icons/go";
 import { BsCart2 } from "react-icons/bs";
-import Login from './Login';
+import {FiTrendingUp} from "react-icons/fi"
 
 function Header() {
     const navigate = useNavigate()
     const location = useLocation();
     const isNavPage = location.pathname === '/';
+    const [isListHovered, setIsListHovered] = useState(false);
     return (
-        <nav className={`mx-1 h-[64px] xl:h-[7.3655vw] flex gap-[2.22222222vw] items-center w-full top-0 p-[0_8px_0_8px] xl:p-[2.2222vw_1.1111vw_0vw_1.1111vw] ${isNavPage ? "bg-transparent text-white z-10 absolute" : "bg-white text-black"}`}>
+        <nav className={` mx-1 h-[64px] xl:h-[7.3655vw] flex gap-[2.22222222vw] items-center w-full top-0 p-[0_8px_0_8px] xl:p-[2.2222vw_1.1111vw_0vw_1.1111vw] ${isNavPage ? isListHovered ?'bg-white text-black z-10 absolute':'bg-transparent text-white z-10 absolute':'bg-white text-black'}`}>
+             {/* Bar */}
+            <div className={`hidden xl:flex justify-end text-sm px-[2vw] py-[0.5vw] z-10 absolute right-0 top-0.5`}>
+                <NavLink to="" className="mr-[1.5vw]">Support</NavLink>
+                <NavLink to="" className="flex items-center gap-1">
+                    For Business <FiTrendingUp />
+                </NavLink>
+            </div>
             <div className='cursor-pointer'>
                 <Link to={'/'}>
                 <svg className='' class="icon" focusable="false" aria-hidden="true" width="130" fill='currentColor' height="29" viewBox="0 0 130 29" data-di-res-id="7242691b-1854f892" data-di-rand="1758191581070">
@@ -22,9 +30,9 @@ function Header() {
                 </Link>
             </div>
 
-            <div className='h-full items-center flex justify-end w-full xl:justify-between'>
+            <div className='h-full items-center flex justify-end w-full xl:justify-between relative'>
                 <div className='h-full items-center hidden xl:flex flex-1'>
-                    <ul className='list-none flex text-[1.11111111vw] font-bold'>
+                    <ul className='list-none flex text-[1.11111111vw] font-bold' onMouseEnter={()=> setIsListHovered(true)} onMouseLeave={() => setIsListHovered(false)}>
                         <li className='list-item '>
                             <div className=''>
                                 <NavLink className='p-[.83333vw_.83333vw_1.1111vw_.83333vw] ' to='/shop'>Shop</NavLink>
@@ -70,8 +78,16 @@ function Header() {
                 </Link>
 
                 {/* User */}
-                <button onClick={()=> navigate('./login')} className='p-[8px] xl:p-[.625vw] text-0 items-center cursor-pointer'>
+                <button onClick={()=> navigate('./login')} className='group p-[8px] xl:p-[.625vw] text-0 items-center cursor-pointer'>
                     <FaRegUser className='h-[24px] xl:h-[1.66666667vw] w-[24px] xl:w-[1.66666667vw]'/>
+
+                    <div className='z-10 bg-white text-black absolute hidden xl:group-hover:flex right-[.44444445vw] shadow-[0_4px_10px_0_rgba(0,0,0,.2)] mt-[1.04166667vw] p-[1.66666667vw] rounded-[1.38888889vw] w-[18.33333333vw] flex-col text-start'>
+                        <Link className='font-bold p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] leading-[1.33]'>Log-In/Sign-Up</Link>
+                        <Link className='mb-[.625vw] p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] flex items-center relative justify-between leading-[1.33]'>Why Create a Samsung Account?</Link>
+                        <Link className='p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] leading-[1.33]'>Order</Link>
+                        <Link className='p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] leading-[1.33]'>Product Registrarion</Link>
+                        <Link className='p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] leading-[1.33]'>Digital Service Center</Link>
+                    </div>
                 </button>
 
                 {/* Mobile Bar */}
