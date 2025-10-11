@@ -6,12 +6,12 @@ import CardSection from '../Components/CardSection'
 
 function Home() {
   return (
-    <div className=''>
+    <div className='max-w-[1440px] m-auto'>
 
       <HeroSection />
 
       <div className='h-full w-full relative'>
-        <img className='hidden sm:block w-full mt-[3vh]' src={ImgGalaxy}></img>
+        <img className='hidden sm:block w-full mt-[3vh]' src='https://images.samsung.com/is/image/samsung/assets/in/home/10-2025/FGF_MX_1440X810-PC_2.jpg?$1440_N_JPG$'></img>
         <img className='bolck sm:hidden mt-[3vh]' src='https://images.samsung.com/is/image/samsung/assets/in/home/09-2025/Galaxy-S25-FE-Ecosystem_Home_Feature_KV_mo_720x1120.jpg?$720_N_JPG$'></img>
 
         <div className="flex sm:flex-row items-center absolute translate-x-[35vw] -translate-y-[120vw] sm:-translate-y-[28vw] sm:translate-x-[53vw] mt-[2.5vw] sm:mt-[1.59722222vw] flex-col justify-start">
@@ -33,7 +33,7 @@ function Home() {
       <CardSection img='https://images.samsung.com/is/image/samsung/assets/in/home/250911/TabS10_Lite_featured_cards_560x560.jpg?$560_560_JPG$'/>
       </div>
 
-      <img className='hidden sm:block' src='https://images.samsung.com/is/image/samsung/assets/in/home/250717/VD-KV-PC_1440x810.png?$1440_N_PNG$'></img>
+      <img className='hidden sm:block' src='https://images.samsung.com/is/image/samsung/assets/in/home/10-2025/FGF_VD_1440X810_PC_.jpg?$1440_N_JPG$'></img>
       <img className='block sm:hidden' src='https://images.samsung.com/is/image/samsung/assets/in/home/250717/VD-KV-MO_720x1120.png?$720_N_PNG$'></img>
 
       <div className='flex p-[1.66666667vw_0vw_1.66666667vw_0vw] gap-[1.6666666vw]'>
@@ -43,7 +43,7 @@ function Home() {
         <CardSection img='https://images.samsung.com/is/image/samsung/assets/in/home/250807/M7.jpg?$560_560_JPG$'/>
       </div>
 
-      <img className='hidden sm:block w-full' src='https://images.samsung.com/is/image/samsung/assets/in/home/250829/Washer_Dryer_KV_PC_1440x810_withoutText.jpg?$1440_N_JPG$'></img>
+      <img className='hidden sm:block w-full' src='https://images.samsung.com/is/image/samsung/assets/in/home/10-2025/FGF_DA_1440X810-PC.jpg?$1440_N_JPG$'></img>
       <img className='block sm:hidden' src='https://images.samsung.com/is/image/samsung/assets/in/home/250829/Washer_Dryer_KV_mo_720x1120_withoutText.jpg?$720_N_JPG$'></img>
 
       <div className='flex p-[1.66666667vw_0vw_1.66666667vw_0vw] gap-[1.6666666vw]'>
