@@ -1,12 +1,15 @@
-import React,{useState} from 'react';
+import React,{useContext, useState} from 'react';
 import { Link,Navigate,NavLink, useLocation, useNavigate } from 'react-router-dom'
 import MobileBar from './MobileBar';
 import { FaRegUser } from "react-icons/fa6";
 import { GoSearch } from "react-icons/go";
 import { BsCart2 } from "react-icons/bs";
 import {FiTrendingUp} from "react-icons/fi"
+import UserContext from '../contexts/UserContext';
 
 function Header() {
+
+    const {user} = useContext(UserContext)
     const navigate = useNavigate()
     const location = useLocation();
     const isNavPage = location.pathname === '/';
@@ -14,9 +17,9 @@ function Header() {
     return (
         <nav className={` mx-1 h-[64px] xl:h-[7.3655vw] flex gap-[2.22222222vw] items-center w-full top-0 p-[0_8px_0_8px] xl:p-[2.2222vw_1.1111vw_0vw_1.1111vw] ${isNavPage ? isListHovered ?'bg-white text-black z-10 absolute':'bg-transparent text-white z-10 absolute':'bg-white text-black'}`}>
              {/* Bar */}
-            <div className={`hidden xl:flex justify-end text-sm px-[2vw] py-[0.5vw] z-10 absolute right-0 top-0.5`}>
-                <NavLink to="" className="mr-[1.5vw]">Support</NavLink>
-                <NavLink to="" className="flex items-center gap-1">
+            <div className={`hidden xl:flex justify-end  z-10 absolute right-[50%] top-[.69444444vw] -mr-[49.02777778vw] font-bold leading-[1.33] gsp-[.13888889vw] text-[.97222222vw]`}>
+                <NavLink to="" className="p-[.27777778vw_.69444444vw] text-[.97222222vw]">Support</NavLink>
+                <NavLink to="" className="p-[.27777778vw_.69444444vw] flex items-center gap-1">
                     For Business <FiTrendingUp />
                 </NavLink>
             </div>
@@ -67,7 +70,7 @@ function Header() {
                 </div>
                 
                 {/* Search Bar */}
-                <button type='button' className={`flex items-center xl:border xl:border-[rgba(255,255,255,0.2)] p-[.625vw] xl:p-[.69444444vw_.83333333vw] xl:mr-[.69444444vw] gap-[.55555556vw] xl:w-[12.22222222vw] xl:rounded-[6.94444444vw] ${isNavPage ? "xl:bg-[rgba(255,255,255,0.1)] text-white" : "bg-[#f7f7f7] text-black"} cursor-pointer relative justify-start`}>
+                <button type='button' className={`flex items-center xl:border xl:border-[rgba(255,255,255,0.2)] p-[.625vw] xl:p-[.69444444vw_.83333333vw] xl:mr-[.69444444vw] gap-[.55555556vw] xl:w-[12.22222222vw] xl:rounded-[6.94444444vw] ${isNavPage ? isListHovered ? "bg-[#f7f7f7] text-black" : "xl:bg-[rgba(255,255,255,0.1)] text-white" : "bg-[#f7f7f7] text-black"} cursor-pointer relative justify-start`}>
                     <span className='hidden xl:block order-2 absolute!important '>Search</span>
                     <GoSearch className='w-[24px] xl:w-[1.1111111vw] h-[24px] xl:h-[1.1111111vw]'/>
                 </button>
@@ -82,7 +85,7 @@ function Header() {
                     <FaRegUser className='h-[24px] xl:h-[1.66666667vw] w-[24px] xl:w-[1.66666667vw]'/>
 
                     <div className='z-10 bg-white text-black absolute hidden xl:group-hover:flex right-[.44444445vw] shadow-[0_4px_10px_0_rgba(0,0,0,.2)] mt-[1.04166667vw] p-[1.66666667vw] rounded-[1.38888889vw] w-[18.33333333vw] flex-col text-start'>
-                        <Link className='font-bold p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] leading-[1.33]'>Log-In/Sign-Up</Link>
+                        <Link className='font-bold p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] leading-[1.33]'>{user || "Login"}</Link>
                         <Link className='mb-[.625vw] p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] flex items-center relative justify-between leading-[1.33]'>Why Create a Samsung Account?</Link>
                         <Link className='p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] leading-[1.33]'>Order</Link>
                         <Link className='p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] leading-[1.33]'>Product Registrarion</Link>
