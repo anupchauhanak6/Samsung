@@ -5,6 +5,7 @@ import { SlArrowUp, SlArrowDown } from "react-icons/sl";
 import { FaFacebook, FaInstagram, FaYoutube, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io";
+import './Footer.css'
 
 function Footer() {
   const [open, setOpen] = useState(null)
