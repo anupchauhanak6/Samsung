@@ -29,8 +29,8 @@ function Login() {
 
   return (
     <>
-        <div className="m-auto max-w-[1440px] w-full pt-[12px]">
-            <div className="p-[20px_24px] leading-[31.92px] text-center">
+        <div className="sm:m-auto max-w-[1440px] w-full sm:pt-[12px] h-fit fixed bg-white overflow-x-hidden overflow-y-auto m-[auto_auto_0] z-10 bottom-0 left-0 right-0">
+            <div className="p-[20px_24px] leading-[31.92px] text-center w-full">
                 <h3 className="block w-full text-[24px] p-[5px_0_20px] font-[700]">
                     Login
                 </h3>
@@ -50,7 +50,7 @@ function Login() {
                         <div className="leading-[18.62px] justify-start p-[0_0_20px_30px]">
                             <input type="checkbox" className={`float-left -ml-[30px] appearance-none outline-none cursor-pointer w-[20px] h-[20px] bg-white border rounded-full checked:bg-blue-500 checked:bg-[url(https://www.samsung.com/in/web/dist/img/icon-checked-white.f836399.svg)] checked:bg-center checked:bg-no-repeat checked:border-blue-500 checked:bg-[length:14px_14px] transition`}></input>
                             
-                            <span className="w-full inline-block font-normal text-[14px] leading-[18.62px] text-start">
+                            <span className="w-full inline-block font-normal text-[12px] sm:text-[14px] leading-[18.62px] text-start">
                                 {"I agree to receive personalized offers and updates"}
                                 <br />
                                 {"You can opt out anytime by visiting My Page"}
@@ -58,11 +58,11 @@ function Login() {
                         </div>
 
                         <p className="p-[25px_0] text-center font-[700] text-[1.11111vw] leading-[200%]">
-                            <button type="submit" className="cursor-pointer h-[40px] w-[296px] border bg-black text-white rounded-[20px]">Login</button>
+                            <button type="submit" className="cursor-pointer h-[40px] w-[296px] border bg-black text-white rounded-[20px] text-[14px]">Login</button>
                         </p>
 
                         <p className="pb-[25px] text-center font-[700] text-[1.11111vw] leading-[200%]">
-                            <button className="cursor-pointer h-[40px] w-[296px] border bg-[#2189ff] text-white rounded-[20px]">Login via Samsung Account</button>
+                            <button className="cursor-pointer h-[40px] w-[296px] border bg-[#2189ff] text-white rounded-[20px] text-[14px]">Login via Samsung Account</button>
                         </p>
                     </form>
                 </div>
