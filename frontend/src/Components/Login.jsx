@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 
 function Login() {
+    const [onMobile, setOnMobile] = useState(true)
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");
     const { setUser } = useContext(UserContext);
@@ -87,7 +88,7 @@ function Login() {
         </div>
 
         {/* Mobile */}
-        <div className="max-w-[1440px] w-full h-fit fixed bg-white overflow-x-hidden overflow-y-auto m-[auto_auto_0] z-10 bottom-0 left-0 right-0 sm:hidden">
+        <div className={`max-w-[1440px] w-full h-fit fixed bg-white overflow-x-hidden overflow-y-auto m-[auto_auto_0] z-10 bottom-0 left-0 right-0 sm:hidden ${onMobile ? 'translate-y-0' : 'translate-y-full'}`}>
             <div className="p-[20px_24px] leading-[31.92px] text-center w-full">
                 <h3 className="block w-full text-[24px] p-[5px_0_20px] font-[700]">
                     Login
@@ -143,6 +144,12 @@ function Login() {
                 </p>
             </div>
         </div>
+        {onMobile && (
+                <div
+                    onClick={() => setOnMobile(false)}
+                    className="fixed inset-0 bg-[rgba(0,0,0,0.6)] z-0"
+                />
+        )}
     </>
   );
 }
