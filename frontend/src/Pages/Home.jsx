@@ -1,59 +1,91 @@
 import React from 'react'
-import Header from '../Components/Header'
 import HeroSection from '../Components/HeroSection'
-import ImgGalaxy from '../assets/Galaxy-S25-home.webp'
-import CardSection from '../Components/CardSection'
+import ProductCard from '../Components/ProductCard'
+import BuyButton from '../Components/BuyButton'
+
+
 
 function Home() {
   return (
-    <div className='max-w-[1440px] m-auto'>
+    <>
+    <HeroSection />   {/* hero image  */}
+    <div className={`mx-auto max-w-[1440px] w-full mt-5`}>
+      
+    {/* 2nd img */}
+    <div className="relative cursor-pointer ">
+      <img className=" hidden sm:block w-full" src="https://images.samsung.com/is/image/samsung/assets/in/home/10-2025/FGF_MX_1440X810-PC_2.jpg?$1440_N_JPG$" alt="" />
+      <img className="sm:hidden" src="https://images.samsung.com/is/image/samsung/assets/in/home/10-2025/FGF_MX_720X1120-MO_2.jpg?$720_N_JPG$" alt="" />
 
-      <HeroSection />
-
-      <div className='h-full w-full relative'>
-        <img className='hidden sm:block w-full mt-[3vh]' src='https://images.samsung.com/is/image/samsung/assets/in/home/10-2025/FGF_MX_1440X810-PC_2.jpg?$1440_N_JPG$'></img>
-        <img className='bolck sm:hidden mt-[3vh]' src='https://images.samsung.com/is/image/samsung/assets/in/home/09-2025/Galaxy-S25-FE-Ecosystem_Home_Feature_KV_mo_720x1120.jpg?$720_N_JPG$'></img>
-
-        <div className="flex sm:flex-row items-center absolute translate-x-[35vw] -translate-y-[120vw] sm:-translate-y-[28vw] sm:translate-x-[53vw] mt-[2.5vw] sm:mt-[1.59722222vw] flex-col justify-start">
-
-          <button className="order-2 sm:order-1 cursor-pointer relative text-black font-semibold after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:left-0 sm:after:bottom-[8.5px] after:bottom-[9.9px] after:transition-all after:duration-300 hover:after:w-full underline decoration-1 underline-offset-8 hover:no-underline mt-[1.94444444vw] sm:mt-0 p-[2.77777778vw_0vw_3.05555556vw_0vw] sm:p-[.69444444vw_0vw_.76388889vw_0vw]">
-            BuyBuds3FE
-          </button>
-          <button className="order-1 sm:order-2 cursor-pointer sm:p-[1.1022167487684729vh_2.8167487684729062vh_1.2246305418719212vh_2.8167487684729062vh] rounded-full font-bold bg-transparent text-black hover:bg-black hover:text-white transition border-[0.5px] sm:ml-[1.73611111vw] p-[2.5vw_6.38888889vw_2.77777778vw_6.38888889vw] text-[3.88888889vw] sm:text-[.97222222vw] mt-[1.94444444vw] sm:mt-0">
-            BuyS25FE
-          </button>
+      <div className="absolute z-10 top-[35%] left-[60px] translateY(-50%) w-[620px] mt-[-4px] ">
+        <h1 className=" text-white font-bold text-[56px] leading-[1.2]">Fab AI companion</h1>
+        <p className=" text-white mt-[17px] text-[24px] leading[1.33]">
+        <br />
+        Grab Galaxy Z Fold7
+        </p>
+        <div className=" ml-[25px] p-[9px_23px_10px_23px]">
+          <BuyButton name="Buy" />
         </div>
-
-      </div>
-
-      <div className='flex p-[1.66666667vw_0vw_1.66666667vw_0vw] gap-[1.6666666vw]'>
-      <CardSection img='https://images.samsung.com/is/image/samsung/assets/in/mx_2507/Galaxy-Z-Flip7_Home_Feature_Card_560x560.jpg?$560_560_JPG$'/>
-      <CardSection img='https://images.samsung.com/is/image/samsung/assets/in/mx_2507/HOME_Feature-Card_Watch8-Classic_560x560.jpg?$560_560_JPG$'/>
-      <CardSection img='https://images.samsung.com/is/image/samsung/assets/in/mx_2507/HOME_Feature-Card_Watch8_560x560.jpg?$560_560_JPG$'/>
-      <CardSection img='https://images.samsung.com/is/image/samsung/assets/in/home/250911/TabS10_Lite_featured_cards_560x560.jpg?$560_560_JPG$'/>
-      </div>
-
-      <img className='hidden sm:block' src='https://images.samsung.com/is/image/samsung/assets/in/home/10-2025/FGF_VD_1440X810_PC_.jpg?$1440_N_JPG$'></img>
-      <img className='block sm:hidden' src='https://images.samsung.com/is/image/samsung/assets/in/home/250717/VD-KV-MO_720x1120.png?$720_N_PNG$'></img>
-
-      <div className='flex p-[1.66666667vw_0vw_1.66666667vw_0vw] gap-[1.6666666vw]'>
-        <CardSection img='https://images.samsung.com/is/image/samsung/assets/in/ux3/home/MDVD_Feature_Card1_560X560.jpg?$560_560_JPG$'/>
-        <CardSection img='https://images.samsung.com/is/image/samsung/assets/in/ux3/home/MDVD_Feature_Card2_560X560.jpg?$560_560_JPG$'/>
-        <CardSection img='https://images.samsung.com/is/image/samsung/assets/in/ux3/home/MDVD_Feature_Card3_560X560.jpg?$560_560_JPG$'/>
-        <CardSection img='https://images.samsung.com/is/image/samsung/assets/in/home/250807/M7.jpg?$560_560_JPG$'/>
-      </div>
-
-      <img className='hidden sm:block w-full' src='https://images.samsung.com/is/image/samsung/assets/in/home/10-2025/FGF_DA_1440X810-PC.jpg?$1440_N_JPG$'></img>
-      <img className='block sm:hidden' src='https://images.samsung.com/is/image/samsung/assets/in/home/250829/Washer_Dryer_KV_mo_720x1120_withoutText.jpg?$720_N_JPG$'></img>
-
-      <div className='flex p-[1.66666667vw_0vw_1.66666667vw_0vw] gap-[1.6666666vw]'>
-        <CardSection img='https://images.samsung.com/is/image/samsung/assets/in/home/250807/1.png?$560_560_PNG$'/>
-        <CardSection img='https://images.samsung.com/is/image/samsung/assets/in/ux3/home/MDDA_Feature_Card2_560X560.jpg?$560_560_JPG$'/>
-        <CardSection img='https://images.samsung.com/is/image/samsung/assets/in/home/250813/WindFree_Inverter_Split_AC_AR60F19D13W_560X560_Fearture_card.jpg?$560_560_JPG$'/>
-        <CardSection img='https://images.samsung.com/is/image/samsung/assets/in/ux3/home/MDDA_Feature_Card4_560X560.jpg?$560_560_JPG$'/>
       </div>
     </div>
-  )
+      
+    {/* Product Card 1st */}
+    <div className="flex w-auto relative overflow-x-auto scroll-smooth p-[1.66666667vw_0vw_1.66666667vw_0vw] sm:px-0 max-w-full scrollbar-hide ">
+      <ProductCard img="https://images.samsung.com/is/image/samsung/assets/in/mx_2507/Galaxy-Z-Flip7_Home_Feature_Card_560x560.jpg?$560_560_JPG$" title={"Galaxy Z Flip7"} />
+      <ProductCard img="https://images.samsung.com/is/image/samsung/assets/in/mx_2507/HOME_Feature-Card_Watch8-Classic_560x560.jpg?$560_560_JPG$" title={"Galaxy Watch8 Classic"}/>
+      <ProductCard img="https://images.samsung.com/is/image/samsung/assets/in/mx_2507/HOME_Feature-Card_Watch8_560x560.jpg?$560_560_JPG$"  title={"Galaxy Watch8"} />
+      <ProductCard img="https://images.samsung.com/is/image/samsung/assets/in/home/250911/TabS10_Lite_featured_cards_560x560.jpg?$560_560_JPG$" title={"Galaxy Tab S10 Lite"} />
+    </div>
+
+    {/* 3rd image */}
+    <div className=" cursor-pointer relative">
+      <img className="hidden sm:block" src="https://images.samsung.com/is/image/samsung/assets/in/home/10-2025/FGF_VD_1440X810_PC_.jpg?$1440_N_JPG$" alt="" />
+      <img className="sm:hidden" src="https://images.samsung.com/is/image/samsung/assets/in/home/10-2025/FGF_VD_720X1120_MO_.jpg?$720_N_JPG$" alt="" />
+
+      <div className=" top-[40%] left-[60px] translateY(-50%) absolute z-10 w-[620px] mt-[-4px]">
+        <h1 className=" text-white font-bold text-[56px] leading-[1.2]">Fab 4K AI upscaling</h1>
+        <p className=" text-white text-[24px] mt-[17px] leading-[1.33]">Grab the Frame TV</p>
+
+        <div className="flex items-center mt-[23px] gap-6">
+          <BuyButton name="Buy" />
+        </div>
+      </div>
+    </div>
+
+    {/* Product Card 2nd */}
+    <div className='relative p-[1.66666667vw_0vw_1.66666667vw_0vw] m-[0_auto]'>
+      <div className="flex relative overflow-x-auto scroll-smooth w-full box-border sm:px-0 max-w-full scrollbar-hide ">
+        <ProductCard img="https://images.samsung.com/is/image/samsung/assets/in/ux3/home/MDVD_Feature_Card1_560X560.jpg?$560_560_JPG$" title={"Neo QLED 8K"} />
+        <ProductCard img="https://images.samsung.com/is/image/samsung/assets/in/ux3/home/MDVD_Feature_Card2_560X560.jpg?$560_560_JPG$" title={"The Frame"} />
+        <ProductCard img="https://images.samsung.com/is/image/samsung/assets/in/ux3/home/MDVD_Feature_Card3_560X560.jpg?$560_560_JPG$" title={"Q-series Soundbar"} />
+        <ProductCard img="https://images.samsung.com/is/image/samsung/assets/in/home/250807/M7.jpg?$560_560_JPG$" title={"Smart Monitor M7"} />
+      </div>
+    </div>     
+
+    {/* 4th img */}   
+    <div className="relative">
+      <img className="w-full h-full sm:block hidden" src="https://images.samsung.com/is/image/samsung/assets/in/home/10-2025/FGF_DA_1440X810-PC.jpg?$1440_N_JPG$" alt="" />
+      <img className="sm:hidden block" src="https://images.samsung.com/is/image/samsung/assets/in/home/10-2025/FGF_DA_720X1120-MO.jpg?$720_N_JPG$" alt="" />
+      <div className=" absolute z-10 top-[39%] left-[80px] translateY(-50%) w-[620px] mt-[-4px]">
+        <h1 className=" text-white font-bold text-[56px] leading-[1.2]">Fab one-stop laundry</h1>
+        <p className="text-white  mt-[17px] text-[24px] leading-[1.33]">Grab Bespoke AI Laundry Combo</p>
+
+        <div className="mt-[23px] flex items-center">
+          <BuyButton name="Buy" />
+        </div>
+      </div>
+    </div>
+
+    {/* Product Card 3rd */}
+    <div className="flex w-auto relative overflow-x-auto scroll-smooth p-[1.66666667vw_0vw_1.66666667vw_0vw] sm:px-0 max-w-full scrollbar-hide ">
+      <ProductCard img="https://images.samsung.com/is/image/samsung/assets/in/home/250807/1.png?$560_560_PNG$" title={"Bespoke AI Refrigerator"} />
+      <ProductCard img="https://images.samsung.com/is/image/samsung/assets/in/ux3/home/MDDA_Feature_Card2_560X560.jpg?$560_560_JPG$" title={"Bespoke AI Laundry"} />
+      <ProductCard img="https://images.samsung.com/is/image/samsung/assets/in/home/250813/WindFree_Inverter_Split_AC_AR60F19D13W_560X560_Fearture_card.jpg?$560_560_JPG$" title={"Bespoke AI WindFree AC"} />
+      <ProductCard img="https://images.samsung.com/is/image/samsung/assets/in/ux3/home/MDDA_Feature_Card4_560X560.jpg?$560_560_JPG$" title={"Microwave Ovens"}/>
+    </div>
+  </div>
+</>
+
+  );
 }
 
-export default Home
+export default Home;
