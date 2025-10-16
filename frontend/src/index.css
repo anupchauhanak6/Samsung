@@ -10,8 +10,8 @@
 }
 
 .scrollbar-hide {
-    margin-right: -0.83333333vw;
-    margin-left: -0.83333333vw;
+    /* margin-right: -0.83333333vw;
+    margin-left: -0.83333333vw; */
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;     /* Firefox */
 }
