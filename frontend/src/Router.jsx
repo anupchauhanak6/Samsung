@@ -12,6 +12,7 @@ const AppRouter = () => {
         <Route path='/shop' element={<Shop />} />
         <Route path='/mobile' element={<Mobile />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/why-samsung-account' element={''} />
     </Routes>
   )
 }
