@@ -6,7 +6,6 @@ import { GoSearch } from "react-icons/go";
 import { BsCart2 } from "react-icons/bs";
 import {FiTrendingUp} from "react-icons/fi"
 import UserContext from '../contexts/UserContext';
-import './header.css'
 
 function Header() {
 
@@ -77,15 +76,16 @@ function Header() {
                 </button>
                 
                 {/* Cart */}
-                <Link className='p-[8px] xl:p-[.625vw]'>
+                <Link to='/cart' className='p-[8px] xl:p-[.625vw]'>
                     <BsCart2 className='h-[24px] xl:h-[1.66666667vw] w-[24px] xl:w-[1.66666667vw]'/>
                 </Link>
 
                 {/* User for pc*/}
                 <button className='user-menu group hidden xl:block p-[8px] xl:p-[.625vw] text-0 items-center cursor-pointer'>
-                    <FaRegUser className='h-[24px] xl:h-[1.66666667vw] w-[24px] xl:w-[1.66666667vw]'/>
+                    <FaRegUser className='hiddden xl:block h-[24px] xl:h-[1.66666667vw] w-[24px] xl:w-[1.66666667vw]'/>
+                    <FaRegUser onClick={()=>navigate('/login')} className='xl:hidden h-[24px] xl:h-[1.66666667vw] w-[24px] xl:w-[1.66666667vw]'/>
 
-                    <div className='utility-menu z-10 bg-white text-black absolute hidden xl:group-hover:flex right-[.44444445vw] shadow-[0_4px_10px_0_rgba(0,0,0,.2)] mt-[1.04166667vw] p-[1.66666667vw] rounded-[1.38888889vw] w-[18.33333333vw] flex-col text-start '>
+                    <div className='utility-menu z-10 bg-white text-black absolute flex invisible xl:group-hover:visible transition-all duration-200 ease-in-out right-[.44444445vw] shadow-[0_4px_10px_0_rgba(0,0,0,.2)] mt-[1.04166667vw] p-[1.66666667vw] rounded-[1.38888889vw] w-[18.33333333vw] flex-col text-start '>
                         <Link to={'/login'} className='font-bold p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] leading-[1.33]'>{user || "Login-In/Sign-Up"}</Link>
                         <Link className='mb-[.625vw] p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] flex items-center relative justify-between leading-[1.33]'>Why Create a Samsung Account?</Link>
                         <Link className='p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] leading-[1.33]'>Order</Link>
