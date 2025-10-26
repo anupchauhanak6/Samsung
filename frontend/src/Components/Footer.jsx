@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { NavLink,Link } from 'react-router-dom'
+import { NavLink,Link, useLocation } from 'react-router-dom'
 import { GoArrowUpRight } from "react-icons/go";
 import { SlArrowUp, SlArrowDown } from "react-icons/sl";
 import { FaFacebook, FaInstagram, FaYoutube, FaLinkedin, FaWhatsapp } from "react-icons/fa";
@@ -9,10 +9,14 @@ import './Footer.css'
 
 function Footer() {
   const [open, setOpen] = useState(null)
+  const location = useLocation()
+  const isCart = location.pathname === '/cart'
+  const isLogin = location.pathname === '/login'
+  const isShop = location.pathname === '/shop'
 
   return (
-    <div className='sm:text-[.83333333vw]'>
-      <div className='!bg-[#f7f7f7] p-[4.44444444vw] leading-[1.33] sm:p-[1.66666667vw]'>
+    <div className='sm:text-[.83333333vw] w-full'>
+      <div className={`!bg-[#f7f7f7] p-[4.44444444vw] leading-[1.33] sm:p-[1.66666667vw] ${isCart || isLogin || isShop ? 'hidden' : 'block'}`}>
         <p className='wrap-anywhere mb-[1.11111111vw] text-[2.77777778vw] sm:text-[.83333333vw]'>*Images shown here are for representational purpose only, actual may vary. All features, specifications and prices are subject to change without prior notice. Model availability may vary from location to location.</p>
         <p className='wrap-anywhere mb-[1.11111111vw] text-[2.77777778vw] sm:text-[.83333333vw]'>*Image simulated. Samsung account login may be required for certain AI features.</p>
         <p className='wrap-anywhere mb-[1.11111111vw] text-[2.77777778vw] sm:text-[.83333333vw]'>*Image simulated. Actual UX/UI may differ. Availability of colours, sizes, models, and watch bands may vary by country or carrier. Products sold separately. Running coach    program is available on Android phones (Android 10 or above) and requires Samsung Health app (v6.30.2 or above). Samsung account login required. Service only available with Galaxy Watch8 Series or later released Galaxy Watch Series. To use running coach program, user needs to take a running level test and get a level before starting the coach program.</p>
