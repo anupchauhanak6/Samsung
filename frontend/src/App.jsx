@@ -11,10 +11,11 @@ import UserProvider from './contexts/UserProvider'
 function App() {
   const location = useLocation()
   const isLoginPage = location.pathname === '/login';
+  const isCartPage = location.pathname === '/cart';
   return (
     <UserProvider>
       <div className='overflow-x-hidden flex flex-col items-center max-w-[1440px] justify-center m-auto'>
-        {isLoginPage ? <LoginHeader /> : <Header />}
+        {isLoginPage || isCartPage ? <LoginHeader /> : <Header />}
         <AppRouter />
         <Footer />
       </div>
