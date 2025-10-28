@@ -29,7 +29,7 @@ app.post('/api/signup',(req,res)=>{
         }
         
         // Here you would typically save to database
-        console.log('Received signup data:', { fullName, email, password })
+        console.log('Received signup data:', { fullName, email })
         
         res.status(201).json({ 
             success: true,
