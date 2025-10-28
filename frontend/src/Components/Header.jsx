@@ -1,4 +1,4 @@
-import React,{useContext, useState} from 'react';
+import React,{useContext, useState, useEffect} from 'react';
 import { Link,Navigate,NavLink, useLocation, useNavigate } from 'react-router-dom'
 import MobileBar from './MobileBar';
 import { FaRegUser } from "react-icons/fa6";
@@ -14,8 +14,29 @@ function Header() {
     const location = useLocation();
     const isNavPage = location.pathname === '/';
     const [isListHovered, setIsListHovered] = useState(false);
+
+    const [isScrolledUp, setIsScrolledUp] = useState(false);
+    const [lastScrollY, setLastScrollY] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            // When at top, reset state
+            if (window.scrollY === 0) {
+                setIsScrolledUp(false);
+            } else if (window.scrollY < lastScrollY) {
+                setIsScrolledUp(true); // scrolling up
+            } else {
+                setIsScrolledUp(false); // scrolling down
+            }
+                setLastScrollY(window.scrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [lastScrollY]);
+
     return (
-        <nav className={` mx-1 h-[64px] xl:h-[7.3655vw] flex gap-[2.22222222vw] items-center w-full top-0 p-[0_8px_0_8px] xl:p-[2.2222vw_1.1111vw_0vw_1.1111vw] ${isNavPage ? isListHovered ?'bg-white text-black z-10 absolute':'bg-transparent text-white z-10 absolute':'bg-white text-black'}`}>
+        <nav className={` mx-1 h-[64px] xl:h-[7.3655vw] flex gap-[2.22222222vw] items-center w-full top-0 p-[0_8px_0_8px] xl:p-[2.2222vw_1.1111vw_0vw_1.1111vw] ${isNavPage ? isListHovered ?'bg-white text-black z-10 absolute': isScrolledUp ? 'bg-white text-black z-50 fixed' :'bg-transparent text-white z-10 absolute':'bg-white text-black'}`}>
              {/* Bar */}
             <div className={`hidden xl:flex justify-end  z-10 absolute right-[50%] top-[.69444444vw] -mr-[49.02777778vw] font-bold leading-[1.33] gsp-[.13888889vw] text-[.97222222vw]`}>
                 <NavLink to="" className="p-[.27777778vw_.69444444vw] text-[.97222222vw]">Support</NavLink>
@@ -81,13 +102,12 @@ function Header() {
                 </Link>
 
                 {/* User for pc*/}
-                <button className='user-menu group hidden xl:block p-[8px] xl:p-[.625vw] text-0 items-center cursor-pointer'>
+                <button className='user-menu group hidden xl:block p-[8px] xl:p-[.625vw] text-0 items-center cursor-pointer relative'>
                     <FaRegUser className='hiddden xl:block h-[24px] xl:h-[1.66666667vw] w-[24px] xl:w-[1.66666667vw]'/>
                     <FaRegUser onClick={()=>navigate('/login')} className='xl:hidden h-[24px] xl:h-[1.66666667vw] w-[24px] xl:w-[1.66666667vw]'/>
 
                     <div className='utility-menu z-10 bg-white text-black absolute flex invisible xl:group-hover:visible transition-all duration-200 ease-in-out right-[.44444445vw] shadow-[0_4px_10px_0_rgba(0,0,0,.2)] mt-[1.04166667vw] p-[1.66666667vw] rounded-[1.38888889vw] w-[18.33333333vw] flex-col text-start '>
                         <Link to={'/login'} className='font-bold p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] leading-[1.33]'>{user || "Login-In/Sign-Up"}</Link>
-                        <Link className='mb-[.625vw] p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] flex items-center relative justify-between leading-[1.33]'>Why Create a Samsung Account?</Link>
                         <Link className='p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] leading-[1.33]'>Order</Link>
                         <Link className='p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] leading-[1.33]'>Product Registrarion</Link>
                         <Link className='p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] leading-[1.33]'>Digital Service Center</Link>
