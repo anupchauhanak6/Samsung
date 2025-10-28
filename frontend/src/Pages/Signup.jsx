@@ -7,18 +7,45 @@ function Signup() {
     const [fullName, setFullName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [error, setError] = useState("")
+    const [loading, setLoading] = useState(false)
 
-    const handleSubmit = (e)=>{
+    const handleSubmit = async (e)=>{
         e.preventDefault();
+        setError("");
+        setLoading(true);
 
         try {
+            // Create JSON object from form data
+            const signupData = {
+                fullName,
+                email,
+                password
+            };
             
-            console.log(fullName);
-            console.log(email);
-            console.log(password);
+            // Convert to JSON and send to backend
+            const response = await fetch('http://localhost:3000/api/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(signupData)
+            });
+
+            const data = await response.json();
+
+            if (response.ok && data.success) {
+                console.log('Signup successful:', data);
+                // Navigate to login page after successful signup
+                navigate('/login');
+            } else {
+                setError(data.message || 'Signup failed');
+            }
         } catch (error) {
             console.log(error);
-            
+            setError('Network error. Please try again.');
+        } finally {
+            setLoading(false);
         }
     }
   return (
@@ -43,8 +70,17 @@ function Signup() {
                         <input onChange={(e) => setPassword(e.target.value)} type="text" id="password" className='peer border-b border-[#8f8f8f] focus:outline-0 text-[14px] font-[400] w-full p-[10px_0_5px] pt-[20px]' required/>
                         <label htmlFor='password' className={`absolute left-0 transition-all duration-300 pointer-events-none ${password ? 'top-[3px] text-[12px] text-black' : 'top-[25px] text-[14px] text-[#766767] peer-focus:top-[3px] peer-focus:text-[12px] peer-focus:text-black'}`}>Enter your Password</label>
                     </div>
+
+                    {error && (
+                        <div className="text-[#dc2222] text-center text-[14px] leading-[18px] mt-[10px] p-[5px_0]">
+                            {error}
+                        </div>
+                    )}
+
                     <p className="p-[25px_0] text-center font-[700] text-[1.11111vw] leading-[200%]">
-                        <button type='submit' className="cursor-pointer h-[40px] w-[296px] border bg-black text-white rounded-[20px] text-[14px]">SignUp</button>
+                        <button type='submit' disabled={loading} className="cursor-pointer h-[40px] w-[296px] border bg-black text-white rounded-[20px] text-[14px] disabled:opacity-50 disabled:cursor-not-allowed">
+                            {loading ? 'Signing up...' : 'SignUp'}
+                        </button>
                     </p>
 
                     <p className="pb-[25px] text-center font-[700] text-[1.11111vw] leading-[200%]">
