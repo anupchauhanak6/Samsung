@@ -12,10 +12,11 @@ function App() {
   const location = useLocation()
   const isLoginPage = location.pathname === '/login';
   const isCartPage = location.pathname === '/cart';
+  const isSignupPage = location.pathname === '/signup';
   return (
     <UserProvider>
       <div className='overflow-x-hidden flex flex-col items-center max-w-[1440px] justify-center m-auto'>
-        {isLoginPage || isCartPage ? <LoginHeader /> : <Header />}
+        {isLoginPage || isCartPage || isSignupPage ? <LoginHeader /> : <Header />}
         <AppRouter />
         <Footer />
       </div>

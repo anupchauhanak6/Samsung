@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 
 function Login() {
+    const navigate = useNavigate()
     const [onMobile, setOnMobile] = useState(true)
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");
@@ -66,7 +67,7 @@ function Login() {
                         </p>
 
                         <p className="pb-[25px] text-center font-[700] text-[1.11111vw] leading-[200%]">
-                            <button className="cursor-pointer h-[40px] w-[296px] border bg-[#2189ff] text-white rounded-[20px] text-[14px]">Login via Samsung Account</button>
+                            <button onClick={()=>navigate('/signup')} className="cursor-pointer h-[40px] w-[296px] border bg-[#2189ff] text-white rounded-[20px] text-[14px]">SignUp</button>
                         </p>
                     </form>
                 </div>
@@ -141,7 +142,7 @@ function Login() {
                         </p>
 
                         <p className="pb-[25px] text-center font-[700] text-[1.11111vw] leading-[200%]">
-                            <button className="cursor-pointer h-[40px] w-[296px] border bg-[#2189ff] text-white rounded-[20px] text-[14px]">Login via Samsung Account</button>
+                            <button onClick={()=>navigate('/signup')} className="cursor-pointer h-[40px] w-[296px] border bg-[#2189ff] text-white rounded-[20px] text-[14px]">SignUp</button>
                         </p>
                     </form>
                 </div>
