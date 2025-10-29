@@ -104,18 +104,17 @@ function Header() {
                 {/* User for pc*/}
                 <button className='user-menu group hidden xl:block p-[8px] xl:p-[.625vw] text-0 items-center cursor-pointer relative'>
                     <FaRegUser className='hiddden xl:block h-[24px] xl:h-[1.66666667vw] w-[24px] xl:w-[1.66666667vw]'/>
-                    <FaRegUser onClick={()=>navigate('/login')} className='xl:hidden h-[24px] xl:h-[1.66666667vw] w-[24px] xl:w-[1.66666667vw]'/>
 
                     <div className='utility-menu z-10 bg-white text-black absolute flex invisible xl:group-hover:visible transition-all duration-200 ease-in-out right-[.44444445vw] shadow-[0_4px_10px_0_rgba(0,0,0,.2)] mt-[1.04166667vw] p-[1.66666667vw] rounded-[1.38888889vw] w-[18.33333333vw] flex-col text-start '>
-                        <Link to={'/login'} className='font-bold p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] leading-[1.33]'>{user || "Login-In/Sign-Up"}</Link>
+                        <Link to={user ? '/profile' : '/login'} className='font-bold p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] leading-[1.33]'>{ user?.FullName || "Login-In/Sign-Up"}</Link>
                         <Link className='p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] leading-[1.33]'>Order</Link>
                         <Link className='p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] leading-[1.33]'>Product Registrarion</Link>
                         <Link className='p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] leading-[1.33]'>Digital Service Center</Link>
                     </div>
                 </button>
                 {/* User for mobile/tablate */}
-                <button onClick={()=> navigate('./login')} className='group xl:hidden p-[8px] xl:p-[.625vw] text-0 items-center cursor-pointer'>
-                    <FaRegUser className='h-[24px] hidden xl:block xl:h-[1.66666667vw] w-[24px] xl:w-[1.66666667vw]'/>
+                <button onClick={user? ()=> navigate('./profile') : ()=> navigate('/login')} className='group xl:hidden p-[8px] xl:p-[.625vw] text-0 items-center cursor-pointer'>
+                    <FaRegUser className='h-[24px] xl:hidden xl:h-[1.66666667vw] w-[24px] xl:w-[1.66666667vw]'/>
                 </button>
 
                 {/* Mobile Bar */}
