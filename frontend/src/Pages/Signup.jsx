@@ -8,6 +8,7 @@ function Signup() {
     const [FullName, setFullName] = useState("")
     const [Email, setEmail] = useState("")
     const [Password, setPassword] = useState("")
+    const [error, setError] = useState("")
 
     const handleSubmit = async (e)=>{
         e.preventDefault();
@@ -28,17 +29,19 @@ function Signup() {
             
             console.log("Registration successful:", response);
             
-            // Success hone par form fields clear karein
-            setFullName("");
-            setEmail("");
-            setPassword("");
-            navigate('/login');
-            // Optional: Success message ya navigation
-            // alert("Registration successful!");
-            // navigate('/login');
+            if(response.status===201 && response.success){ 
+                // Success hone par form fields clear karein
+                setFullName("");
+                setEmail("");
+                setPassword("");
+                navigate('/login');
+            } else {
+                setError(response.message || "Registration failed. Please try again.");
+            }
             
         } catch (error) {
             console.log("Registration error:", error);
+            setError("Registration failed. Please try again.");  
             // Optional: Error message show karein
             // alert("Registration failed. Please try again.");
         }
@@ -86,6 +89,7 @@ function Signup() {
                                 required
                             />
                             <label htmlFor='password' className={`absolute left-0 transition-all duration-300 pointer-events-none ${Password ? 'top-[3px] text-[12px] text-black' : 'top-[25px] text-[14px] text-[#766767] peer-focus:top-[3px] peer-focus:text-[12px] peer-focus:text-black'}`}>Enter your Password</label>
+                            <div className="text-[#dc2222] text-start text-[12px] leading-[14px] mt-[5px] p-[5px_0] min-h-[1.25rem]"> {error} </div>
                         </div>
                         <p className="p-[25px_0] text-center font-[700] text-[1.11111vw] leading-[200%]">
                             <button type='submit' className="cursor-pointer h-[40px] w-[296px] border bg-black text-white rounded-[20px] text-[14px]">Sign Up</button>
