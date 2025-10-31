@@ -5,7 +5,7 @@ import { login } from "../api/Api";
 
 function Login() {
     const navigate = useNavigate()
-    const [onMobile, setOnMobile] = useState(true)
+    // const [onMobile, setOnMobile] = useState(true)
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [agreed, setAgreed] = useState(false);
@@ -181,7 +181,7 @@ function Login() {
         </div>
 
         {/* Mobile */}
-        <div className={`max-w-[1440px] w-full h-full sm:h-fit fixed bg-white overflow-x-hidden overflow-y-auto m-[auto_auto_0] z-10 bottom-0 left-0 right-0 md:hidden ${onMobile ? 'translate-y-0' : 'translate-y-full'}`}>
+        <div className={`max-w-[1440px] w-full h-full fixed bg-white overflow-x-hidden overflow-y-auto m-[auto_auto_0] z-10 bottom-0 left-0 right-0 md:hidden `}> {/* if you need onMobile the add this into className = {onMobile ? 'translate-y-0' : 'translate-y-full'} */}
             <div className="p-[20px_24px] leading-[31.92px] text-center w-full border-b-[.5px] border-[#8f8f8f] sm:border-none">
                 <h3 className="block w-full text-[24px] p-[5px_0_20px] font-[700]">
                     Login
@@ -189,7 +189,7 @@ function Login() {
                 <h4 className="block text-[18px] p-[0_0_22px] font-[700]">
                     Login with mobile to become a member
                 </h4>
-                <div className="p-[15px_0_0] w-[33vw] h-[80px] m-auto table relative ">
+                <div className="p-[15px_0_0] w-full h-[80px] m-auto table relative ">
                     <form onSubmit={handleSubmit}>
                         <div className="w-full m-0 relative">
                             <input onChange={(e) => setEmail(e.target.value)} type="text" id="username" value={email} className="peer border-b border-[#8f8f8f] focus:outline-0 text-[14px] font-[400] w-full p-[10px_0_5px] pt-[20px]" />
@@ -243,12 +243,12 @@ function Login() {
                 </div>
             </div>
         </div>
-        {onMobile && (
+        {/* {onMobile && (
                 <div
                     onClick={() => setOnMobile(false)}
                     className="fixed inset-0 bg-[rgba(0,0,0,0.6)] z-0 hidden sm:block md:hidden"
                 />
-        )}
+        )} */}
     </>
   );
 }
