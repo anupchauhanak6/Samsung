@@ -2,6 +2,7 @@ import React from 'react'
 import HeroSection from '../Components/HeroSection'
 import ProductCard from '../Components/ProductCard'
 import BuyButton from '../Components/BuyButton'
+import LernMoreButton from '../Components/LernMoreButton';
 
 
 
@@ -13,17 +14,18 @@ function Home() {
       
     {/* 2nd img */}
     <div className="relative cursor-pointer ">
-      <img className=" hidden sm:block w-full" src="https://images.samsung.com/is/image/samsung/assets/in/home/10-2025/FGF_MX_1440X810-PC_2.jpg?$1440_N_JPG$" alt="" />
+      <img className=" hidden sm:block w-full" src="https://images.samsung.com/is/image/samsung/assets/in/home/10-2025/Feature_KV_MX_copy.jpg?$1440_N_JPG$" alt="" />
       <img className="sm:hidden" src="https://images.samsung.com/is/image/samsung/assets/in/home/10-2025/FGF_MX_720X1120-MO_2.jpg?$720_N_JPG$" alt="" />
 
       <div className="absolute z-10 top-[35%] left-[60px] translateY(-50%) w-[620px] mt-[-4px] ">
-        <h1 className=" text-white font-bold text-[56px] leading-[1.2]">Fab AI companion</h1>
-        <p className=" text-white mt-[17px] text-[24px] leading[1.33]">
-        <br />
-        Grab Galaxy Z Fold7
-        </p>
-        <div className=" ml-[25px] p-[9px_23px_10px_23px]">
-          <BuyButton name="Buy" />
+        <h1 className=" text-[#000] font-bold text-[3.88888889vw] leading-[1.2]">
+          {"You speak"}
+          <br/>
+          {"We understand"}
+        </h1>
+        <div className="flex mt-[4.44444445vw] items-center">
+          <LernMoreButton Name='Learn more' />
+          <BuyButton Name="Buy" className='md:ml-[1.73611111vw]' />
         </div>
       </div>
     </div>
