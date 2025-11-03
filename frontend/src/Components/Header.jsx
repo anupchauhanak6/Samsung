@@ -134,7 +134,7 @@ function Header() {
                 {/* User for mobile/tablate */}
                 <button onClick={user? ()=> navigate('./profile') : ()=> navigate('/login')} className='group xl:hidden p-[8px] xl:p-[.625vw] text-0 items-center cursor-pointer'>
                     {/* <FaRegUser className='h-[24px] xl:hidden xl:h-[1.66666667vw] w-[24px] xl:w-[1.66666667vw]'/> */}
-                    <svg className='h-[24px] xl:hidden xl:h-[1.66666667vw] w-[24px] xl:w-[1.66666667vw]' fill='currentColor' class="icon" focusable="false" aria-hidden="true" width="96" height="96" viewBox="0 0 96 96" data-di-res-id="9dace16f-94f67383" data-di-rand="1761831152491">
+                    <svg className='h-[24px] xl:hidden xl:h-[1.66666667vw] w-[24px] xl:w-[1.66666667vw]' fill='currentColor' class="icon" focusable="false" aria-hidden="true" width="24" height="24" viewBox="0 0 96 96" data-di-res-id="9dace16f-94f67383" data-di-rand="1761831152491">
                         <path d="M48,51.5c16.521,0,30.5,13.82,30.5,29.555h0V89A3.5,3.5,0,0,1,75,92.5H21A3.5,3.5,0,0,1,17.5,89h0V81.055C17.5,65.32,31.479,51.5,48,51.5Zm0,5c-13.772,0-25.5,11.595-25.5,24.555h0V87.5h51V81.055c0-12.831-11.494-24.323-25.087-24.552h0Zm0-53A20.5,20.5,0,1,1,27.5,24,20.5,20.5,0,0,1,48,3.5Zm0,5A15.5,15.5,0,1,0,63.5,24,15.5,15.5,0,0,0,48,8.5Z" transform="translate(-0.5 0.5)"></path>
                     </svg>
                 </button>
