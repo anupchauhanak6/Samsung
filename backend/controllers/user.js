@@ -1,7 +1,11 @@
 import { user } from "../models/userModel.js";
 import bcrypt from 'bcryptjs'
+import { generateAccessToken } from "../utils/generateToken.js";
 
+// Register
 export async function Register(req,res){
+    console.log(' register');
+    
     try {
         const {FullName,Email,Password} = req.body
         console.log('Req body in SignUp',req.body);
@@ -54,6 +58,8 @@ export async function Register(req,res){
 
 // Login
 export async function Login(req, res) {
+    console.log('api called');
+    
     try {
         const { Email, Password } = req.body;
         console.log('Req body in login', req.body);
@@ -99,8 +105,17 @@ export async function Login(req, res) {
             });
         }
 
+        // save tocken into local storage
+        const jwtToken = await generateAccessToken(findUser)
+
+        console.log(jwtToken);
+        
+        // const {accessToken, options} = jwtToken
+
         // Password sahi hai - Login successful
-        return res.status(200).json({
+        return res.status(200)
+        .cookie('accessToken' , jwtToken.accessToken , jwtToken.options)
+        .json({
             message: 'Login successful',
             error: false,
             success: true,
@@ -118,6 +133,38 @@ export async function Login(req, res) {
             error: true,
             success: false
         });
+    }
+}
+
+// Forgot password
+export async function forgotPassword(data) {
+    try {
+        const {Email, Password} = req.body
+        console.log('req body for forgot email, password', req.body);
+    
+        const findOne = user.findOne({Email})
+
+        const userId = user._id
+        console.log(userId);
+        
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export async function editProfile(req, res) {
+    try {
+        const {FullName, Email, Password} = req.body
+        console.log('name ,email and password for profile edit');
+
+        const findUser = user.findOne({Email})
+
+        const User = user
+        
+    } catch (error) {
+        console.log(error);
+        
     }
 }
 
