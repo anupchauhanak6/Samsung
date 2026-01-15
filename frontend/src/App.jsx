@@ -1,15 +1,25 @@
 import React from 'react'
 import './App.css'
+import Header from './Components/Header'
+import Footer from './Components/Footer'
 import AppRouter from './Router'
+import LoginHeader from './Components/LoginHeader'
+import { useLocation } from 'react-router-dom'
 import UserProvider from './contexts/UserProvider'
-import Layout from './Components/Layout'
 
 function App() {
+  const location = useLocation()
+  const isLoginPage = location.pathname === '/login';
+  const isCartPage = location.pathname === '/cart';
+  const isSignupPage = location.pathname === '/signup';
+  
   return (
     <UserProvider>
-      <Layout>
+      <div className='overflow-x-hidden overflow-hidden flex flex-col items-center max-w-[1440px] justify-center m-auto'>
+        {isLoginPage || isCartPage || isSignupPage ? <LoginHeader /> : <Header />}
         <AppRouter />
-      </Layout>
+        <Footer />
+      </div>
     </UserProvider>
   )
 }
