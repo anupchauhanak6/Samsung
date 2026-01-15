@@ -1,5 +1,5 @@
-import React,{useContext, useState, useEffect} from 'react';
-import { Link,Navigate,NavLink, useLocation, useNavigate } from 'react-router-dom'
+import React,{useContext,} from 'react';
+import { Link,Navigate,NavLink, useNavigate } from 'react-router-dom'
 import MobileBar from './MobileBar';
 import { FaRegUser } from "react-icons/fa6";
 import { GoSearch } from "react-icons/go";
@@ -11,49 +11,9 @@ function Header() {
 
     const {user} = useContext(UserContext)
     const navigate = useNavigate()
-    const location = useLocation();
-    const isNavPage = location.pathname === '/';
-    const [isListHovered, setIsListHovered] = useState(false);
-
-    const [isScrolledUp, setIsScrolledUp] = useState(false);
-    const [lastScrollY, setLastScrollY] = useState(0);
-    const [isAtTop, setIsAtTop] = useState(true);
-
-    // useEffect:
-    useEffect(() => {
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY;
-            
-            // Track if at top
-            setIsAtTop(currentScrollY === 0);
-            
-            // When at top, reset state
-            if (currentScrollY === 0) {
-                setIsScrolledUp(false);
-            } else if (currentScrollY < lastScrollY) {
-                setIsScrolledUp(true); // scrolling up
-            } else {
-                setIsScrolledUp(false); // scrolling down
-            }
-            setLastScrollY(currentScrollY);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, [lastScrollY]);
-
-    const getNavClasses = () => {
-        if (!isNavPage) return 'bg-white text-black';
-        
-        if (isScrolledUp || isListHovered) {
-            return 'bg-white text-black z-50 fixed';
-        }
-        
-        return 'bg-transparent text-white z-50 absolute';
-};
 
     return (
-        <nav className={` mx-1 h-[64px] xl:h-[7.3655vw] flex gap-[2.22222222vw] items-center w-full top-0 p-[0_8px_0_8px] xl:p-[2.2222vw_1.1111vw_0vw_1.1111vw] transform transition-all duration-300 ease-in-out ${isNavPage ? (isAtTop || isScrolledUp || isListHovered) ? 'translate-y-0' : '-translate-y-full' : 'translate-y-0'} ${getNavClasses()}`}>
+        <nav className={` mx-1 h-[64px] xl:h-[7.3655vw] flex gap-[2.22222222vw] items-center w-full top-0 p-[0_8px_0_8px] xl:p-[2.2222vw_1.1111vw_0vw_1.1111vw] transform transition-all duration-300 ease-in-out `}>
              {/* Bar */}
             <div className={`hidden xl:flex justify-end  z-50 absolute right-[50%] top-[.69444444vw] -mr-[49.02777778vw] font-bold leading-[1.33] gsp-[.13888889vw] text-[.97222222vw]`}>
                 <NavLink to="" className="p-[.27777778vw_.69444444vw] text-[.97222222vw]">Support</NavLink>
@@ -73,7 +33,7 @@ function Header() {
 
             <div className='h-full items-center gap-[4px] xl:gap-0 flex justify-end w-full xl:justify-between relative'>
                 <div className='h-full items-center hidden xl:flex flex-1'>
-                    <ul className='list-none flex text-[1.11111111vw] font-bold' onMouseEnter={()=> setIsListHovered(true)} onMouseLeave={() => setIsListHovered(false)}>
+                    <ul className='list-none flex text-[1.11111111vw] font-bold'>
                         <li className='list-item '>
                             <div className=''>
                                 <NavLink className='p-[.83333vw_.83333vw_1.1111vw_.83333vw] ' to='/shop'>Shop</NavLink>
@@ -108,7 +68,7 @@ function Header() {
                 </div>
                 
                 {/* Search Bar */}
-                <button type='button' className={`flex items-center xl:border xl:border-[rgba(255,255,255,0.2)] p-[8px] xl:p-[.69444444vw_.83333333vw] xl:mr-[.69444444vw] gap-[.55555556vw] xl:w-[12.22222222vw] xl:rounded-[6.94444444vw] transform transition-all duration-300 ease-in-out ${isNavPage ? isListHovered || isScrolledUp ? "xl:bg-[#f7f7f7] text-black" : "xl:bg-[rgba(255,255,255,0.1)] text-white" : "xl:bg-[#f7f7f7] text-black"} cursor-pointer relative justify-start`}>
+                <button type='button' className={`flex items-center xl:border xl:border-[rgba(255,255,255,0.2)] p-[8px] xl:p-[.69444444vw_.83333333vw] xl:mr-[.69444444vw] gap-[.55555556vw] xl:w-[12.22222222vw] xl:rounded-[6.94444444vw] transform transition-all duration-300 ease-in-out ${"xl:bg-[rgba(255,255,255,0.1)] text-white"} cursor-pointer relative justify-start`}>
                     <span className='hidden xl:block order-2 absolute!important '>Search</span>
                     <GoSearch className='w-[24px] xl:w-[1.1111111vw] h-[24px] xl:h-[1.1111111vw]'/>
                 </button>
@@ -124,7 +84,7 @@ function Header() {
                     <svg className='hiddden xl:block h-[24px] xl:h-[1.66666667vw] w-[24px]' fill='currentColor' class="icon" focusable="false" aria-hidden="true" width="24" height="24" viewBox="0 0 96 96" data-di-res-id="9dace16f-94f67383" data-di-rand="1761831152491">
                         <path d="M48,51.5c16.521,0,30.5,13.82,30.5,29.555h0V89A3.5,3.5,0,0,1,75,92.5H21A3.5,3.5,0,0,1,17.5,89h0V81.055C17.5,65.32,31.479,51.5,48,51.5Zm0,5c-13.772,0-25.5,11.595-25.5,24.555h0V87.5h51V81.055c0-12.831-11.494-24.323-25.087-24.552h0Zm0-53A20.5,20.5,0,1,1,27.5,24,20.5,20.5,0,0,1,48,3.5Zm0,5A15.5,15.5,0,1,0,63.5,24,15.5,15.5,0,0,0,48,8.5Z" transform="translate(-0.5 0.5)"></path>
                     </svg>
-                    <div className='utility-menu z-50 bg-white text-black absolute flex invisible xl:group-hover:visible right-[.44444445vw] shadow-[0_4px_10px_0_rgba(0,0,0,.2)] mt-[1.04166667vw] p-[1.66666667vw] rounded-[1.38888889vw] w-[18.33333333vw] flex-col text-start transform transition-all duration-200 ease-in-out'>
+                    <div className='z-50 bg-white text-black absolute flex invisible xl:group-hover:visible right-[.44444445vw] shadow-[0_4px_10px_0_rgba(0,0,0,.2)] mt-[1.04166667vw] p-[1.66666667vw] rounded-[1.38888889vw] w-[18.33333333vw] flex-col text-start transform transition-all duration-200 ease-in-out'>
                         <Link to={user ? '/profile' : '/login'} className={`font-bold p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] leading-[1.33] ${user ? 'text-blue-500' : 'text-black'}`}>{ user?.FullName || "Login-In/Sign-Up"}</Link>
                         <Link className='p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] leading-[1.33]'>Order</Link>
                         <Link className='p-[.69444444vw_1.11111111vw_.83333333vw_1.11111111vw] text-[.97222222vw] leading-[1.33]'>Product Registrarion</Link>

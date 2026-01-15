@@ -1,8 +1,10 @@
 import React from 'react'
 import { useContext } from 'react'
 import UserContext from '../contexts/UserContext'
+import { useNavigate } from 'react-router-dom'
 
 function Cart() {
+    const navigate = useNavigate()
     const {user} = useContext(UserContext)
   return (
     <div className='m-0 p-0 align-top'>
@@ -16,9 +18,9 @@ function Cart() {
                             </div>
                             <h2 className='text-[38px] font-[700] leading-[48px] text-center p-[0_0_24px]'>Your cart is empty</h2>
                             <p className={`${user ? 'hidden' : 'block'}`}>Sign in to your Samsung account to view your saved items or continue shopping</p>
-                            <div className='flex justify-center align-top'>
-                                <button className={`${user ? 'hidden' : 'block'} order-2`}>2</button>
-                                <button className=''>1</button>
+                            <div className='flex justify-center align-center flex-row'>
+                                <button className={`${user ? 'hidden' : 'block'} order-2 h-[40px] w-[212px] text-[#fff] border border-[#2189ff] rounded-[20px] text-[14px] leading-[18.62px] text-center font-[700] bg-[#2189ff] m-[15px_0] cursor-pointer`}>Sign In</button>
+                                <button onClick={()=>navigate(('/'))} className='h-[40px] w-[212px] border rounded-[20px] text-[14px] leading-[18.62px] text-center font-[700] m-[0_10px] self-center cursor-pointer'>Continue shopping</button>
                             </div>
                         </div>
                     </div>

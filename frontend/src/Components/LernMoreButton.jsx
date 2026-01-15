@@ -3,7 +3,7 @@ import React from 'react'
 function LernMoreButton(props) {
   return (
     <div>
-        <button className="cursor-pointer relative text-white font-semibold after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-white after:left-0 after:bottom-[calc(var(--spacing)*-0.61)] after:transition-all after:duration-300 hover:after:w-full underline decoration-1 underline-offset-8 hover:no-underline">
+        <button className={`cursor-pointer relative text-[#000] font-semibold after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-[#000] after:left-0 after:bottom-[calc(var(--spacing)*-0.61)] after:transition-all after:duration-300 hover:after:w-full underline decoration-1 underline-offset-8 hover:no-underline ${props.className || ''}`}>
             {props.Name}
           </button>
     </div>

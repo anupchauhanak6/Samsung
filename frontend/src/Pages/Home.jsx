@@ -14,18 +14,18 @@ function Home() {
       
     {/* 2nd img */}
     <div className="relative cursor-pointer ">
-      <img className=" hidden sm:block w-full" src="https://images.samsung.com/is/image/samsung/assets/in/home/10-2025/Feature_KV_MX_copy.jpg?$1440_N_JPG$" alt="" />
+      <img className=" hidden sm:block w-full" src="https://images.samsung.com/is/image/samsung/assets/in/home/11-2025/25_ym_2h_home_feature-kv_mx_pc_1440x810_text.jpg?$1440_N_JPG$" alt="" />
       <img className="sm:hidden" src="https://images.samsung.com/is/image/samsung/assets/in/home/10-2025/FGF_MX_720X1120-MO_2.jpg?$720_N_JPG$" alt="" />
 
       <div className="absolute z-10 top-[35%] left-[60px] translateY(-50%) w-[620px] mt-[-4px] ">
         <h1 className=" text-[#000] font-bold text-[3.88888889vw] leading-[1.2]">
-          {"You speak"}
+          {"Your coach,"}
           <br/>
-          {"We understand"}
+          {"day and night"}
         </h1>
         <div className="flex mt-[4.44444445vw] items-center">
-          <LernMoreButton Name='Learn more' />
-          <BuyButton Name="Buy" className='md:ml-[1.73611111vw]' />
+          <LernMoreButton Name='More on Galaxy Watch8' />
+          <BuyButton Name="More on Galaxy Z Fold7" className='md:ml-[1.73611111vw]' />
         </div>
       </div>
     </div>
@@ -40,15 +40,16 @@ function Home() {
 
     {/* 3rd image */}
     <div className=" cursor-pointer relative">
-      <img className="hidden sm:block" src="https://images.samsung.com/is/image/samsung/assets/in/home/10-2025/FGF_VD_1440X810_PC_.jpg?$1440_N_JPG$" alt="" />
+      <img className="hidden sm:block" src="https://images.samsung.com/is/image/samsung/assets/in/home/11-2025/25_ym_2h_home_feature-kv_vd_pc_1440x810_text-1.jpg?$1440_N_JPG$" alt="" />
       <img className="sm:hidden" src="https://images.samsung.com/is/image/samsung/assets/in/home/10-2025/FGF_VD_720X1120_MO_.jpg?$720_N_JPG$" alt="" />
 
-      <div className=" top-[40%] left-[60px] translateY(-50%) absolute z-10 w-[620px] mt-[-4px]">
-        <h1 className=" text-white font-bold text-[56px] leading-[1.2]">Fab 4K AI upscaling</h1>
-        <p className=" text-white text-[24px] mt-[17px] leading-[1.33]">Grab the Frame TV</p>
+      <div className=" top-[35%] left-[60px] translateY(-50%) absolute z-10 w-[620px] mt-[-4px]">
+        <h1 className="font-bold text-[56px] leading-[1.2]">Upscale viewing experience</h1>
+        {/* <p className=" text-white text-[24px] mt-[17px] leading-[1.33]">Grab the Frame TV</p> */}
 
-        <div className="flex items-center mt-[23px] gap-6">
-          <BuyButton name="Buy" />
+        <div className="flex items-center mt-[50px] gap-6">
+          <LernMoreButton Name='Learn more' />
+          <BuyButton Name="View all"/>
         </div>
       </div>
     </div>
@@ -65,14 +66,18 @@ function Home() {
 
     {/* 4th img */}   
     <div className="relative">
-      <img className="w-full h-full sm:block hidden" src="https://images.samsung.com/is/image/samsung/assets/in/home/10-2025/FGF_DA_1440X810-PC.jpg?$1440_N_JPG$" alt="" />
+      <img className="w-full h-full sm:block hidden" src="https://images.samsung.com/is/image/samsung/assets/in/home/11-2025/25_ym_2h_home_feature-kv_da_2_pc_1440x810_text.jpg?$1440_N_JPG$" alt="" />
       <img className="sm:hidden block" src="https://images.samsung.com/is/image/samsung/assets/in/home/10-2025/FGF_DA_720X1120-MO.jpg?$720_N_JPG$" alt="" />
-      <div className=" absolute z-10 top-[39%] left-[80px] translateY(-50%) w-[620px] mt-[-4px]">
-        <h1 className=" text-white font-bold text-[56px] leading-[1.2]">Fab one-stop laundry</h1>
-        <p className="text-white  mt-[17px] text-[24px] leading-[1.33]">Grab Bespoke AI Laundry Combo</p>
+      <div className=" absolute z-10 top-[35%] left-[60px] translateY(-50%) w-[620px] mt-[-4px]">
+        <h1 className="font-bold text-[56px] leading-[1.2]">
+          {"Wash,"}
+          <br/>
+          {"tailored to fabric"}
+        </h1>
+        {/* <p className="text-white  mt-[17px] text-[24px] leading-[1.33]">Grab Bespoke AI Laundry Combo</p> */}
 
-        <div className="mt-[23px] flex items-center">
-          <BuyButton name="Buy" />
+        <div className="mt-[50px] flex items-center">
+          <BuyButton Name="Learn more" />
         </div>
       </div>
     </div>

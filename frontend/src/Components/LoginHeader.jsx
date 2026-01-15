@@ -33,24 +33,24 @@ function LoginHeader() {
                     <FaRegUser className={`hidden xl:block h-[24px] xl:h-[1.66666667vw] w-[24px] xl:w-[1.66666667vw] ${isLogin ? 'opacity-[0.5]' : ''}`} />
                     <FaRegUser onClick={()=>navigate('/login')} className={`xl:hidden h-[24px] xl:h-[1.66666667vw] w-[24px] xl:w-[1.66666667vw] ${isLogin ? 'opacity-[0.5]' : ''}`} />
 
-                    <ul className="z-10 bg-white text-black absolute invisible xl:group-hover:visible transition-all duration-200 ease-in top-[4.44444444vw] right-[.55555556vw] shadow-[0_4px_10px_0_rgba(0,0,0,.2)] rounded-[1.38888889vw] p-[1.66666667vw_0]">
-                        <li className="">
-                            <Link to={'/login'} className="p-[0_1.11111111vw] w-[15vw] text-[.97222222vw] inline-flex items-center justify-start font-[600] leading-[2.77777778vw]">
-                                {user || "Log-In/Sign-Up"}
+                    <ul className={`z-10 bg-white text-black absolute invisible xl:group-hover:visible transition-all duration-200 ease-in top-[4.44444444vw] right-[.55555556vw] shadow-[0_4px_10px_0_rgba(0,0,0,.2)] rounded-[1.38888889vw] p-[1.66666667vw_0]`}>
+                        <li className={`${isLogin ? 'font-[600]' : 'hover:font-[600]'}`}>
+                            <Link to={user ? '/profile' : '/login'} className={`p-[0_1.11111111vw] w-[15vw] text-[.97222222vw] inline-flex items-center justify-start leading-[2.77777778vw] ${user? 'font-[700] text-blue-500' : 'text-black'}`}>
+                                {user?.FullName || "Log-In/Sign-Up"}
                             </Link>
                         </li>
-                        <li className="">
-                            <Link className="p-[0_1.11111111vw] w-[15vw] text-[.97222222vw] inline-flex items-center justify-start font-[600] leading-[2.77777778vw]">
+                        <li className={`${isLogin ? 'font-[600]' : 'hover:font-[600]'}`}>
+                            <Link className="p-[0_1.11111111vw] w-[15vw] text-[.97222222vw] inline-flex items-center justify-start leading-[2.77777778vw]">
                                 Order
                             </Link>
                         </li>
-                        <li className="">
-                            <Link className="p-[0_1.11111111vw] w-[15vw] text-[.97222222vw] inline-flex items-center justify-start font-[600] leading-[2.77777778vw]">
+                        <li className={`${isLogin ? 'font-[600]' : 'hover:font-[600]'}`}>
+                            <Link className="p-[0_1.11111111vw] w-[15vw] text-[.97222222vw] inline-flex items-center justify-start leading-[2.77777778vw]">
                                 Product Registrarion
                             </Link>
                         </li>
-                        <li className="">
-                            <Link className="p-[0_1.11111111vw] w-[15vw] text-[.97222222vw] inline-flex items-center justify-start font-[600] leading-[2.77777778vw]">
+                        <li className={`${isLogin ? 'font-[600]' : 'hover:font-[600]'}`}>
+                            <Link className="p-[0_1.11111111vw] w-[15vw] text-[.97222222vw] inline-flex items-center justify-start leading-[2.77777778vw]">
                                 Digital Service Center
                             </Link>
                         </li>

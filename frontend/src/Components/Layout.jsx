@@ -11,7 +11,7 @@ function Layout({ children }) {
     const isSignupPage = location.pathname === '/signup';
 
     return (
-        <div className='overflow-x-hidden flex flex-col items-center max-w-[1440px] justify-center m-auto'>
+        <div className='overflow-x-hidden overflow-hidden flex flex-col items-center max-w-[1440px] justify-center m-auto'>
             {isLoginPage || isCartPage || isSignupPage ? <LoginHeader /> : <Header />}
             {children}
             <Footer />
