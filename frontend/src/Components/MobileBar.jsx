@@ -10,7 +10,7 @@ function MobileBar() {
     const isCart = location.pathname==='/cart'
     const [menuOpen, setMenuOpen] = useState(false)
     
-    // ✅ Stronger body scroll lock
+    // Stronger body scroll lock
     useEffect(() => {
         if (menuOpen) {
             document.body.style.overflow = 'hidden';
@@ -40,7 +40,7 @@ function MobileBar() {
                 </button>
             </div>
 
-            {/* Background Overlay - PEHLE RENDER KARO */}
+
             {menuOpen && (
                 <div
                     onClick={() => setMenuOpen(false)}

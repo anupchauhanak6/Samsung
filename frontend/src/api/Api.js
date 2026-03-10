@@ -68,8 +68,7 @@ export async function login(data) {
     try {
         const response = await api.post('/api/login', data);
         console.log('Login response:', response);
-        
-        // Axios automatically handles response, no need for response.ok check
+    
         return {
             status: response.status,
             ...response.data
@@ -78,22 +77,13 @@ export async function login(data) {
     } catch (error) {
         console.log('Login error:', error);
         
-        // Axios mein error.response se backend error milta hai
         if (error.response) {
-            // Backend se error message
             return {
                 status: error.response.status,
                 ...error.response.data
             };
         } else {
-            // Network ya other error
             throw error;
         }
     }
 }
-
-// profile edit
-
-// const editProfile =  async () => {
-    
-// }
